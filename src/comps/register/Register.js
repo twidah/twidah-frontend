@@ -23,6 +23,7 @@ export default function RegisterForm() {
         <input
           type="text"
           name="username"
+          placeholder="Enter your username"
           value={form.username}
           onChange={change}
         />
@@ -30,19 +31,37 @@ export default function RegisterForm() {
       <label htmlFor="email">
         {""}
         Email
-        <input type="email" name="email" value={form.email} onChange={change} />
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+          value={form.email}
+          onChange={change}
+        />
       </label>
       <label htmlFor="password">
         {""}
         Password
-        <input type="password" name="password" onChange={change} />
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter your password"
+          value={form.password}
+          onChange={change}
+        />
       </label>
       <label htmlFor="password">
         {""}
         Verify Password
-        <input type="password" name="verifyPassword" onChange={change} />
+        <input
+          type="password"
+          name="verifyPassword"
+          placeholder="Verify your password"
+          value={form.verifyPassword}
+          onChange={change}
+        />
       </label>
-      {/* <button onClick={}>Submit</button> */}
+      {/* <button onClick={}></button> */}
     </form>
   );
 }
