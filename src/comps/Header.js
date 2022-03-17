@@ -25,7 +25,6 @@ const Header = () => {
 };
 const HeaderStyle = styled.div`
   padding: 1em;
-  background-color: 
   display: flex;
   align-items: center;
   justify-content: space-between;
