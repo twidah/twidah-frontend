@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const loginFormState = {
   usernameOrEmail: "",
@@ -8,6 +9,8 @@ const loginFormState = {
 
 export default function LoginForm() {
   const [login, setLogin] = useState(loginFormState);
+
+  let navigate = useNavigate();
 
   const change = (e) => {
     const { name, value } = e.target;
@@ -24,6 +27,7 @@ export default function LoginForm() {
       .post("http://localhost:4000/api/auth/login", obj)
       .then((res) => {
         localStorage.setItem("token", `Bearer ${res.data.token}`);
+        navigate("/main");
       })
       .catch((err) => {
         console.log(err);
