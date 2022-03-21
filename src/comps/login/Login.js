@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const loginFormState = {
-  username: "",
+  usernameOrEmail: "",
   password: "",
 };
 
@@ -13,16 +14,32 @@ export default function LoginForm() {
     setLogin({ ...login, [name]: value });
   };
 
+  const submit = (e) => {
+    e.preventDefault();
+    const obj = {
+      usernameOrEmail: login.usernameOrEmail,
+      password: login.password,
+    };
+    axios
+      .post("http://localhost:4000/api/auth/login", obj)
+      .then((res) => {
+        localStorage.setItem("token", `Bearer ${res.data.token}`);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
-    <form>
-      <label htmlFor="username">
+    <form onSubmit={submit}>
+      <label htmlFor="usernameOrEmail">
         {""}
-        Username
+        Username/Email
         <input
           type="text"
-          name="username"
-          placeholder="Enter your username"
-          value={login.username}
+          name="usernameOrEmail"
+          placeholder="Enter Username/Email"
+          value={login.usernameOrEmail}
           onChange={change}
         />
       </label>
@@ -32,12 +49,12 @@ export default function LoginForm() {
         <input
           type="password"
           name="password"
-          placeholder="Enter your password"
+          placeholder="Enter Password"
           value={login.password}
           onChange={change}
         />
       </label>
-      {/* <button onClick={}>Login</button> */}
+      <button>Login</button>
     </form>
   );
 }
