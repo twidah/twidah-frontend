@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Logout = () => {
+  let navigate = useNavigate();
+  useEffect(() => {
+    localStorage.removeItem("token");
+    setTimeout(() => navigate("/login"), 1000);
+  });
   return (
     <LogoutStyle>
       <h2> Thank you for visiting TWITCO ฿!</h2>
