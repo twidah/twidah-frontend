@@ -14,7 +14,9 @@ export default function RegisterForm({ setLogged }) {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
-
+  const submit = (e) => {
+    e.preventDefault();
+  };
   return (
     <form>
       <label htmlFor="username">
@@ -61,7 +63,20 @@ export default function RegisterForm({ setLogged }) {
           onChange={change}
         />
       </label>
-      {/* <button onClick={}></button> */}
+      <label>
+        <button
+          style={{
+            cursor: "pointer",
+            marginLeft: "5px",
+            fontSize: "18px",
+            backgroundColor: "#69db7c",
+            color: "white",
+          }}
+          type="submit"
+        >
+          Sign up!
+        </button>
+      </label>
     </form>
   );
 }
