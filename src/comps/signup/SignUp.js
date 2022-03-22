@@ -83,6 +83,7 @@ export default function SignUp({ setLogged }) {
           onChange={change}
         />
       </label>
+      <br />
       <label htmlFor="email">
         {""}
         Email
@@ -94,6 +95,7 @@ export default function SignUp({ setLogged }) {
           onChange={change}
         />
       </label>
+      <br />
       <label htmlFor="password">
         {""}
         Password
@@ -105,7 +107,7 @@ export default function SignUp({ setLogged }) {
           onChange={change}
         />
       </label>
-
+      <br />
       <button
         disabled={disabled}
         style={{
