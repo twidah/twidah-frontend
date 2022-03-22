@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { loginSchema } from "../../validations/LoginSchema";
 
+import { LoginAPI } from "../../configs/api";
+
 const loginFormState = {
   usernameOrEmail: "",
   password: "",
@@ -45,11 +47,11 @@ export default function LoginForm({ setLogged }) {
       password: login.password,
     };
     axios
-      .post("http://localhost:4000/api/auth/login", obj)
+      .post(`${LoginAPI}`, obj)
       .then((res) => {
         localStorage.setItem("token", `Bearer ${res.data.token}`);
         setLogged(true);
-        navigate("/main");
+        navigate("/");
       })
       .catch((err) => {
         console.log(err);

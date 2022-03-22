@@ -5,6 +5,8 @@ import axios from "axios";
 import * as yup from "yup";
 import { signupSchema } from "../../validations/SignupSchema";
 
+import { SignUpAPI } from "../../configs/api";
+
 const initialFormState = {
   username: "",
   email: "",
@@ -49,7 +51,7 @@ export default function SignUp({ setLogged }) {
       password: form.password,
     };
     axios
-      .post("http://localhost:4000/api/auth/register", obj)
+      .post(`${SignUpAPI}`, obj)
       .then((res) => {
         localStorage.setItem("token", `Bearer ${res.data.token}`);
         setLogged(true);
