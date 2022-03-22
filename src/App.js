@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import LoginForm from "./comps/login/Login";
-import RegisterForm from "./comps/register/Register";
+import SignUp from "./comps/signup/SignUp";
 import Header from "./comps/Header";
 import Logout from "./comps/logout/Logout";
 import { Main } from "./comps/main/Main";
@@ -23,17 +23,14 @@ function App() {
       <Header logged={logged} />
       <Routes>
         <Route
-          path="/main"
+          path="/"
           element={
             <RequireAuth redirectTo="/login">
               <Main />
             </RequireAuth>
           }
         />
-        <Route
-          path="/register"
-          element={<RegisterForm setLogged={setLogged} />}
-        />
+        <Route path="/signup" element={<SignUp setLogged={setLogged} />} />
         <Route path="/login" element={<LoginForm setLogged={setLogged} />} />
         <Route
           path="/logout"

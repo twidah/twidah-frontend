@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Header = ({ logged }) => {
   return (
     <HeaderStyle>
-      <h1>TWITCO ฿</h1>
+      <h1>TWIDAH ฿</h1>
       <MenuStyle>
         {!logged && (
           <>
             <li>
-              <Link to="/register">Sign Up</Link>
+              <Link to="/signup">Sign Up</Link>
             </li>
             <li>
               <Link to="/login">Login</Link>

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const initialFormState = {
   username: "",
@@ -7,7 +9,7 @@ const initialFormState = {
   verifyPassword: "",
 };
 
-export default function RegisterForm({ setLogged }) {
+export default function SignUp({ setLogged }) {
   const [form, setForm] = useState(initialFormState);
 
   const change = (e) => {
@@ -15,8 +17,32 @@ export default function RegisterForm({ setLogged }) {
     setForm({ ...form, [name]: value });
   };
 
+  let navigate = useNavigate();
+
+  const submit = (e) => {
+    e.preventDefault();
+    if (form.password !== form.verifyPassword) {
+      // May need to do a better response, maybe with state?
+      window.alert("Make sure the passwords match!");
+    } else {
+      const obj = {
+        username: form.username,
+        email: form.email,
+        password: form.password,
+      };
+      axios
+        .post("http://localhost:4000/api/auth/register", obj)
+        .then((res) => {
+          localStorage.setItem("token", `Bearer ${res.data.token}`);
+          setLogged(true);
+          navigate("/");
+        })
+        .catch((err) => console.log(err));
+    }
+  };
+
   return (
-    <form>
+    <form onSubmit={submit}>
       <label htmlFor="username">
         {" "}
         Username
@@ -61,7 +87,7 @@ export default function RegisterForm({ setLogged }) {
           onChange={change}
         />
       </label>
-      {/* <button onClick={}></button> */}
+      <button>Register</button>
     </form>
   );
 }
