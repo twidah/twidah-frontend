@@ -1,19 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
+import * as yup from "yup";
+import { signupSchema } from "../../validations/SignupSchema";
 
 const initialFormState = {
   username: "",
   email: "",
   password: "",
-  verifyPassword: "",
 };
+
+const initialErrorState = {
+  username: "",
+  email: "",
+  password: "",
+};
+
+const initialDisabled = true;
 
 export default function SignUp({ setLogged }) {
   const [form, setForm] = useState(initialFormState);
+  const [errors, setErrors] = useState(initialErrorState);
+  const [disabled, setDisabled] = useState(initialDisabled);
+
+  const validate = (name, value) => {
+    yup
+      .reach(signupSchema, name)
+      .validate(value)
+      .then(() => setErrors({ ...errors, [name]: "" }))
+      .catch((err) => setErrors({ ...errors, [name]: err.errors[0] }));
+  };
 
   const change = (e) => {
     const { name, value } = e.target;
+    validate(name, value);
     setForm({ ...form, [name]: value });
   };
 
@@ -21,28 +42,34 @@ export default function SignUp({ setLogged }) {
 
   const submit = (e) => {
     e.preventDefault();
-    if (form.password !== form.verifyPassword) {
-      // May need to do a better response, maybe with state?
-      window.alert("Make sure the passwords match!");
-    } else {
-      const obj = {
-        username: form.username,
-        email: form.email,
-        password: form.password,
-      };
-      axios
-        .post("http://localhost:4000/api/auth/register", obj)
-        .then((res) => {
-          localStorage.setItem("token", `Bearer ${res.data.token}`);
-          setLogged(true);
-          navigate("/");
-        })
-        .catch((err) => console.log(err));
-    }
+
+    const obj = {
+      username: form.username,
+      email: form.email,
+      password: form.password,
+    };
+    axios
+      .post("http://localhost:4000/api/auth/register", obj)
+      .then((res) => {
+        localStorage.setItem("token", `Bearer ${res.data.token}`);
+        setLogged(true);
+        navigate("/");
+      })
+      .catch((err) => console.log(err));
   };
+
+  useEffect(() => {
+    signupSchema.isValid(form).then((valid) => setDisabled(!valid));
+  }, [form]);
 
   return (
     <form onSubmit={submit}>
+      <span>{errors.username}</span>
+      <br />
+      <span>{errors.email}</span>
+      <br />
+      <span>{errors.password}</span>
+      <br />
       <label htmlFor="username">
         {" "}
         Username
@@ -76,18 +103,9 @@ export default function SignUp({ setLogged }) {
           onChange={change}
         />
       </label>
-      <label htmlFor="password">
-        {""}
-        Verify Password
-        <input
-          type="password"
-          name="verifyPassword"
-          placeholder="Verify your password"
-          value={form.verifyPassword}
-          onChange={change}
-        />
-      </label>
+
       <button
+        disabled={disabled}
         style={{
           cursor: "pointer",
           marginLeft: "5px",
