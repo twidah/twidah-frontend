@@ -1,24 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const Header = () => {
+const Header = ({ logged }) => {
   return (
     <HeaderStyle>
       <h1>TWITCO ฿</h1>
       <MenuStyle>
-        <li>
-          <Link to="/home">Home</Link>
-        </li>
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
-        <li>
-          <Link to="/register">Sign Up</Link>
-        </li>
-        <li>
-          <Link to="/logout">Logout</Link>
-        </li>
+        {!logged && (
+          <>
+            <li>
+              <Link to="/register">Sign Up</Link>
+            </li>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+          </>
+        )}
+
+        {logged && (
+          <>
+            <li>
+              <Link to="/main">Home</Link>
+            </li>
+            <li>
+              <Link to="/logout">Logout</Link>
+            </li>
+          </>
+        )}
       </MenuStyle>
     </HeaderStyle>
   );
