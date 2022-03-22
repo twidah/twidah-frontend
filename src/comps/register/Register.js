@@ -7,7 +7,7 @@ const initialFormState = {
   verifyPassword: "",
 };
 
-export default function RegisterForm() {
+export default function RegisterForm({ setLogged }) {
   const [form, setForm] = useState(initialFormState);
 
   const change = (e) => {

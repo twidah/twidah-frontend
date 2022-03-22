@@ -1,4 +1,5 @@
 import "./App.css";
+import React, { useState, useEffect } from "react";
 import LoginForm from "./comps/login/Login";
 import RegisterForm from "./comps/register/Register";
 import Header from "./comps/Header";
@@ -8,9 +9,18 @@ import { Route, Routes } from "react-router-dom";
 import { RequireAuth } from "./comps/RequireAuth";
 
 function App() {
+  const [logged, setLogged] = useState(false);
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("token");
+    if (isLoggedIn) {
+      setLogged(true);
+    } else {
+      setLogged(false);
+    }
+  }, []);
   return (
     <div>
-      <Header />
+      <Header logged={logged} />
       <Routes>
         <Route
           path="/main"
@@ -20,13 +30,16 @@ function App() {
             </RequireAuth>
           }
         />
-        <Route path="/register" element={<RegisterForm />} />
-        <Route path="/login" element={<LoginForm />} />
+        <Route
+          path="/register"
+          element={<RegisterForm setLogged={setLogged} />}
+        />
+        <Route path="/login" element={<LoginForm setLogged={setLogged} />} />
         <Route
           path="/logout"
           element={
             <RequireAuth redirectTo="/login">
-              <Logout />
+              <Logout setLogged={setLogged} />
             </RequireAuth>
           }
         />
