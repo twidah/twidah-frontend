@@ -4,7 +4,6 @@ import RegisterForm from "./comps/register/Register";
 import Header from "./comps/Header";
 import Logout from "./comps/logout/Logout";
 import { Route, Routes } from "react-router-dom";
-// import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (

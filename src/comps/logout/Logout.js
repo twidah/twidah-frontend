@@ -8,6 +8,7 @@ const Logout = () => {
     </LogoutStyle>
   );
 };
+
 const LogoutStyle = styled.div`
   margin-top: 15%;
   display: flex;
