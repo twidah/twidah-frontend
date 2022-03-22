@@ -6,8 +6,11 @@ const Logout = ({ setLogged }) => {
   let navigate = useNavigate();
   useEffect(() => {
     localStorage.removeItem("token");
-    setLogged(false);
-    setTimeout(() => navigate("/login"), 1000);
+
+    setTimeout(() => {
+      navigate("/login");
+      setLogged(false);
+    }, 1000);
   });
   return (
     <LogoutStyle>
