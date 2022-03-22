@@ -2,10 +2,11 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-const Logout = () => {
+const Logout = ({ setLogged }) => {
   let navigate = useNavigate();
   useEffect(() => {
     localStorage.removeItem("token");
+    setLogged(false);
     setTimeout(() => navigate("/login"), 1000);
   });
   return (

@@ -7,7 +7,7 @@ const loginFormState = {
   password: "",
 };
 
-export default function LoginForm() {
+export default function LoginForm({ setLogged }) {
   const [login, setLogin] = useState(loginFormState);
 
   let navigate = useNavigate();
@@ -27,6 +27,7 @@ export default function LoginForm() {
       .post("http://localhost:4000/api/auth/login", obj)
       .then((res) => {
         localStorage.setItem("token", `Bearer ${res.data.token}`);
+        setLogged(true);
         navigate("/main");
       })
       .catch((err) => {
