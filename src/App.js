@@ -2,7 +2,7 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import LoginForm from "./comps/login/Login";
 import SignUp from "./comps/signup/SignUp";
-import Header from "./comps/Header";
+import Header from "./comps/nav/Header";
 import Logout from "./comps/logout/Logout";
 import { Dash } from "./comps/dash/Dash";
 import { Route, Routes } from "react-router-dom";
