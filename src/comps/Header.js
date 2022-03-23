@@ -20,7 +20,7 @@ const Header = ({ logged }) => {
         {logged && (
           <>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">Main</Link>
             </li>
             <li>
               <Link to="/logout">Logout</Link>
