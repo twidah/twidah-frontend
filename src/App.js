@@ -6,7 +6,7 @@ import Header from "./comps/Header";
 import Logout from "./comps/logout/Logout";
 import { Dash } from "./comps/dash/Dash";
 import { Route, Routes } from "react-router-dom";
-import { RequireAuth } from "./comps/RequireAuth";
+import { RequireAuth, PublicAuth } from "./comps/Auth";
 
 function App() {
   const [logged, setLogged] = useState(false);
@@ -30,8 +30,22 @@ function App() {
             </RequireAuth>
           }
         />
-        <Route path="/signup" element={<SignUp setLogged={setLogged} />} />
-        <Route path="/login" element={<LoginForm setLogged={setLogged} />} />
+        <Route
+          path="/signup"
+          element={
+            <PublicAuth redirectTo="/">
+              <SignUp setLogged={setLogged} />
+            </PublicAuth>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <PublicAuth redirectTo="/">
+              <LoginForm setLogged={setLogged} />
+            </PublicAuth>
+          }
+        />
         <Route
           path="/logout"
           element={
