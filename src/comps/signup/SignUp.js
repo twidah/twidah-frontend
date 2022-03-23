@@ -25,6 +25,7 @@ export default function SignUp({ setLogged }) {
   const [form, setForm] = useState(initialFormState);
   const [errors, setErrors] = useState(initialErrorState);
   const [disabled, setDisabled] = useState(initialDisabled);
+  const [fetchErrors, setFetchErrors] = useState("");
 
   const validate = (name, value) => {
     yup
@@ -57,7 +58,7 @@ export default function SignUp({ setLogged }) {
         setLogged(true);
         navigate("/");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => setFetchErrors(err));
   };
 
   useEffect(() => {
@@ -66,6 +67,7 @@ export default function SignUp({ setLogged }) {
 
   return (
     <form onSubmit={submit}>
+      <span>{fetchErrors}</span>
       <span>{errors.username}</span>
       <br />
       <span>{errors.email}</span>

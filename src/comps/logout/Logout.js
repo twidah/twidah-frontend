@@ -14,7 +14,7 @@ const Logout = ({ setLogged }) => {
   });
   return (
     <LogoutStyle>
-      <h2> Thank you for visiting TWITCO ฿!</h2>
+      <h2> Thank you for visiting TWIDAH ฿!</h2>
     </LogoutStyle>
   );
 };
