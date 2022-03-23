@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import "./index.css";
 
 const Header = ({ logged }) => {
   return (
@@ -32,7 +33,6 @@ const Header = ({ logged }) => {
   );
 };
 const HeaderStyle = styled.div`
-  padding: 1em;
   display: flex;
   align-items: center;
   justify-content: space-between;

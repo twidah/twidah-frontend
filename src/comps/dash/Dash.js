@@ -5,7 +5,7 @@ export const Dash = () => {
     <>
       <div className="wrapper">
         <div>
-          <h1>Side Personal Nav</h1>
+          <h1>Personal Nav</h1>
         </div>
         <div>
           <h1>Feed Component</h1>
