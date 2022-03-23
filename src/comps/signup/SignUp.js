@@ -5,8 +5,6 @@ import axios from "axios";
 import * as yup from "yup";
 import { signupSchema } from "../../validations/SignupSchema";
 
-import { SignUpAPI } from "../../configs/api";
-
 const initialFormState = {
   username: "",
   email: "",
@@ -52,7 +50,7 @@ export default function SignUp({ setLogged }) {
       password: form.password,
     };
     axios
-      .post(`${SignUpAPI}`, obj)
+      .post("https://twidah.herokuapp.com/api/auth/register", obj)
       .then((res) => {
         localStorage.setItem("token", `Bearer ${res.data.token}`);
         setLogged(true);
