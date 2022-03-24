@@ -6,6 +6,7 @@ export const LeftNav = () => {
         <>
             <LeftNavButton to={"/"} value={"Dash"} />
             <LeftNavButton to={"/"} value={"Profile"} />
+            <LeftNavButton to={"/"} value={"Post"} />
         </>
     );
 };
