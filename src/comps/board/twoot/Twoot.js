@@ -6,12 +6,8 @@ export const Twoot = () => {
     return (
         <div className="twoot-container">
             <div className="img-and-text">
-                <img className="profile-pic" src={img} />
-                <textarea
-                    type="text"
-                    name="twoot"
-                    placeholder="What's poppin?"
-                />
+                <img className="profile-pic" src={img} alt="Profile" />
+                <input type="text" name="twoot" placeholder="What's poppin?" />
             </div>
             <button>Post</button>
         </div>
