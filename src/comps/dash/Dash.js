@@ -5,13 +5,13 @@ export const Dash = () => {
     return (
         <>
             <div className="wrapper">
-                <div>
+                <div className="left-nav container">
                     <LeftNav />
                 </div>
-                <div>
+                <div className="container">
                     <h1>Feed Component</h1>
                 </div>
-                <div>
+                <div className="container">
                     <h1>Notify Nav</h1>
                 </div>
             </div>

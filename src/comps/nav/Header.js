@@ -5,7 +5,7 @@ import "./index.css";
 const Header = ({ logged }) => {
     return (
         <HeaderStyle>
-            <h1>TWIDAH</h1>
+            <h1>TWIDAH v0.2</h1>
             <MenuStyle>
                 {!logged && (
                     <>
