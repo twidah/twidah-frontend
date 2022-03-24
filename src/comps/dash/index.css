@@ -1,21 +1,22 @@
 .wrapper {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  /*
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    /*
   // NOTES FOR FUTURE ON GRID
   grid-template-columns:repeat(3, 1fr);
   grid-column-gap: 1em;
   grid-row-gap: 2em;
   */
-  grid-gap: 1em;
-  height: 90vh;
+    grid-gap: 1em;
+    height: 90vh;
 }
 
-.wrapper div {
-  background: #eee;
-  padding: 1em;
+.wrapper .container {
+    background: #eee;
+    padding: 1em;
+    border-radius: 1em;
 }
 
 .wrapper div:nth-child(odd) {
-  background: #ddd;
+    background: #ddd;
 }
