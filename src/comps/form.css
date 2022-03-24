@@ -1,0 +1,32 @@
+.form {
+    background-color: rgb(245, 149, 65);
+    border-radius: 1em;
+    border: 1px solid black;
+    text-align: center;
+    margin: auto;
+    width: 400px;
+    height: auto;
+    padding-bottom: 1em;
+}
+
+.form input {
+    border-radius: 1em;
+    border: none;
+    padding: 1em;
+    margin: 1em;
+}
+
+.form button {
+    padding: 0.5em;
+    width: 5em;
+    border-radius: 0.5em;
+    transition: background-color 1s;
+}
+
+.form button:disabled:hover {
+    background-color: grey;
+}
+
+.form button:hover {
+    background-color: rgb(57, 244, 157);
+}

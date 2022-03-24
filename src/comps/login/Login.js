@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { loginSchema } from "../../validations/LoginSchema";
 
+import "../form.css";
+
 const loginFormState = {
     usernameOrEmail: "",
     password: "",
@@ -15,11 +17,16 @@ const initialErrorState = {
     password: "",
 };
 
+const initialFetchErrors = {
+    message: "",
+};
+
 const initialDisabled = true;
 
 export default function LoginForm({ setLogged }) {
     const [login, setLogin] = useState(loginFormState);
     const [errors, setErrors] = useState(initialErrorState);
+    const [fetchErrors, setFetchErrors] = useState(initialFetchErrors);
     const [disabled, setDisabled] = useState(initialDisabled);
 
     let navigate = useNavigate();
@@ -50,8 +57,11 @@ export default function LoginForm({ setLogged }) {
                 setLogged(true);
                 navigate("/");
             })
-            .catch((err) => {
-                console.log(err);
+            .catch(({ response }) => {
+                setFetchErrors({
+                    ...fetchErrors,
+                    message: response.data.message,
+                });
             });
     };
 
@@ -60,14 +70,14 @@ export default function LoginForm({ setLogged }) {
     }, [login]);
 
     return (
-        <form onSubmit={submit}>
-            <span>{errors.usernameOrEmail}</span>
-            <br />
-            <span>{errors.password}</span>
-            <br />
-            <label htmlFor="usernameOrEmail">
-                {""}
-                Username/Email
+        <div className="form">
+            <form onSubmit={submit}>
+                <span>{errors.usernameOrEmail}</span>
+                <br />
+                <span>{errors.password}</span>
+                <br />
+                <label htmlFor="usernameOrEmail">Username/Email</label>
+                <br />
                 <input
                     type="text"
                     name="usernameOrEmail"
@@ -75,12 +85,9 @@ export default function LoginForm({ setLogged }) {
                     value={login.usernameOrEmail}
                     onChange={change}
                 />
-            </label>
-            <br />
-
-            <label htmlFor="password">
-                {""}
-                Password
+                <br />
+                <label htmlFor="password">Password</label>
+                <br />
                 <input
                     type="password"
                     name="password"
@@ -88,9 +95,12 @@ export default function LoginForm({ setLogged }) {
                     value={login.password}
                     onChange={change}
                 />
-            </label>
-            <br />
-            <button disabled={disabled}>Login</button>
-        </form>
+                <br />
+
+                <button disabled={disabled}>Login</button>
+                <br />
+                <span>{fetchErrors.message}</span>
+            </form>
+        </div>
     );
 }
