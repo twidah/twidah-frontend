@@ -10,3 +10,11 @@ body {
         #ffa80a 100%
     ); */
 }
+
+canvas {
+    z-index: -1;
+}
+
+.main {
+    position: relative;
+}
