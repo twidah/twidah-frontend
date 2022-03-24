@@ -53,7 +53,7 @@ const MenuStyle = styled.ul`
             font-weight: bold;
         }
         a:hover {
-            color: lightblue;
+            color: orange;
             text-decoration: underline;
         }
     }
