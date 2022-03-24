@@ -112,7 +112,10 @@ export default function SignUp({ setLogged }) {
                     onChange={change}
                 />
                 <br />
+
                 <button disabled={disabled}>Sign up!</button>
+                <br />
+                <span>{fetchErrors.message}</span>
             </form>
         </div>
     );
