@@ -5,16 +5,16 @@
     margin: 0.5em;
 }
 
-.img-and-text input {
+.img-and-text textarea {
     display: inline-block;
     border: 1px solid range;
     border-radius: 0.5em;
-    width: 80%;
+    width: 100%;
     color: orange;
     background: transparent;
     outline: none;
     font-size: 2em;
-    padding: 0.5em;
+    /* padding: 0.5em; */
 }
 
 .twoot-container button {
@@ -31,4 +31,9 @@
 .twoot-container button:hover {
     background-color: orange;
     color: #333;
+}
+
+.twoot-wrapper {
+    display: grid;
+    grid-template-columns: 0.1fr 1fr;
 }

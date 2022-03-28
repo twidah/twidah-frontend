@@ -5,9 +5,13 @@ import "./index.css";
 export const Twoot = () => {
     return (
         <div className="twoot-container">
-            <div className="img-and-text">
+            <div className="img-and-text twoot-wrapper">
                 <img className="profile-pic" src={img} alt="Profile" />
-                <input type="text" name="twoot" placeholder="What's poppin?" />
+                <textarea
+                    type="text"
+                    name="twoot"
+                    placeholder="What's poppin?"
+                />
             </div>
             <button>Post</button>
         </div>
