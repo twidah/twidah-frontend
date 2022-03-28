@@ -2,13 +2,17 @@ html,
 body {
     margin: 0px;
     height: 100%;
-    /* background-color: #f97428;
-    background-image: linear-gradient(
+    background-color: rgb(19, 19, 19);
+    color: #fff;
+    /* background-color: #f97428; */
+    /* background-image: linear-gradient(
         43deg,
         #f97428 0%,
         #c55a1d 46%,
         #ffa80a 100%
     ); */
+    /* background-color: #ff7b02; */
+    /* background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%); */
 }
 
 canvas {

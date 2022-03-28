@@ -1,4 +1,5 @@
 import "./index.css";
+import "../glitch.css";
 import { LeftNav } from "../leftnav/LeftNav";
 import { Board } from "../board/Board";
 
@@ -13,7 +14,9 @@ export const Dash = () => {
                     <Board />
                 </div>
                 <div className="container waves">
-                    <h1>Hot Waves</h1>
+                    <h1 className="glitch" data-text="Hot Waves">
+                        Hot Waves
+                    </h1>
                 </div>
             </div>
         </>

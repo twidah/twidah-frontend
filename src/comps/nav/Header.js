@@ -5,7 +5,7 @@ import "./index.css";
 const Header = ({ logged }) => {
     return (
         <HeaderStyle>
-            <h1>TWIDAH v0.2</h1>
+            <h1 className="twidah">TWIDAH v0.2</h1>
             <MenuStyle>
                 {!logged && (
                     <>
@@ -48,13 +48,14 @@ const MenuStyle = styled.ul`
         padding: 0.3rem 1rem;
         a {
             text-decoration: none;
-            color: black;
+            color: white;
             font-size: 1.2em;
             font-weight: bold;
+            transition: background-color 2s, color 1s;
         }
         a:hover {
             color: orange;
-            text-decoration: underline;
+            // text-decoration: underline;
         }
     }
 `;
