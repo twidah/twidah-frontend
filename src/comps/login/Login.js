@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../form.css";
 
+// validator
 import * as yup from "yup";
 import { loginSchema } from "../../validations/LoginSchema";
 
-import "../form.css";
+// config
+import { LoginConfig } from "../../config/api";
 
 const loginFormState = {
     usernameOrEmail: "",
@@ -51,7 +54,7 @@ export default function LoginForm({ setLogged }) {
             password: login.password,
         };
         axios
-            .post("https://twidah.herokuapp.com/api/auth/login", obj)
+            .post(`${LoginConfig}`, obj)
             .then((res) => {
                 localStorage.setItem("token", `Bearer ${res.data.token}`);
                 setLogged(true);
