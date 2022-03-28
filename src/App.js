@@ -8,7 +8,7 @@ import { Dash } from "./comps/dash/Dash";
 import { Route, Routes } from "react-router-dom";
 import { RequireAuth, PublicAuth } from "./comps/Auth";
 
-import { ParticlesBackground } from "./ParticlesBackground";
+// import { ParticlesBackground } from "./ParticlesBackground";
 
 function App() {
     const [logged, setLogged] = useState(false);
