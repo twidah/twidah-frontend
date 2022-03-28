@@ -23,9 +23,7 @@ function App() {
 
     return (
         <div className="app">
-            <div id="particles">
-                <ParticlesBackground />
-            </div>
+            <div id="particles">{/* <ParticlesBackground /> */}</div>
             <div className="main">
                 <Header logged={logged} />
                 <Routes>

@@ -7,10 +7,10 @@
 
 .img-and-text input {
     display: inline-block;
-    border: 1px solid black;
+    border: 1px solid range;
     border-radius: 0.5em;
     width: 80%;
-    color: #333;
+    color: orange;
     background: transparent;
     outline: none;
     font-size: 2em;
@@ -19,8 +19,9 @@
 
 .twoot-container button {
     background: transparent;
-    transition: background-color 1s, padding 1s;
-    border: 1px solid black;
+    transition: background-color 1s, color 1s;
+    border: 1px solid orange;
+    color: orange;
     border-radius: 0.5em;
     float: right;
     font-size: 1.2em;
@@ -29,5 +30,5 @@
 
 .twoot-container button:hover {
     background-color: orange;
-    padding: 0.8em;
+    color: #333;
 }
