@@ -6,9 +6,12 @@ export const Post = ({ post }) => {
     return (
         <div className="post">
             <img className="profile-pic" src={img} alt="profile pic" />
-            <div className="username-post">
-                <span>Username</span>
-                <span className="post-text">Post</span>
+            <div className="username-and-post">
+                {/* For now this shows the user id, but we want to show the username */}
+                <div>
+                    <span className="post-username">@Username</span>
+                </div>
+                <div className="no-wrap">{post.post_body}</div>
             </div>
         </div>
     );
