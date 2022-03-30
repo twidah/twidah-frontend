@@ -14,6 +14,7 @@
     background: transparent;
     outline: none;
     font-size: 2em;
+    resize: none;
     /* padding: 0.5em; */
 }
 

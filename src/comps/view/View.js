@@ -3,7 +3,7 @@ import "../glitch.css";
 import { LeftNav } from "../leftnav/LeftNav";
 import { Board } from "../board/Board";
 
-export const Dash = () => {
+export const View = () => {
     return (
         <>
             <div className="wrapper">

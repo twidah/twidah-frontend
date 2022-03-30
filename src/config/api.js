@@ -4,3 +4,7 @@ export const SignUpConfig =
 
 export const LoginConfig =
     process.env.REACT_APP_LOGIN_API || "http://localhost:4000/api/auth/login";
+
+export const TwootPostConfig =
+    process.env.REACT_APP_TWOOT_CREATE_API ||
+    "http://localhost:4000/api/posts/";
