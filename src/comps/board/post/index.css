@@ -4,6 +4,7 @@
     border: 1px solid grey;
     border-radius: 1em;
     overflow: scroll;
+    margin-bottom: 1.5em;
 }
 
 .username-and-post div {

@@ -18,13 +18,17 @@
     /* padding: 0.5em; */
 }
 
+.float-right {
+    float: right;
+}
+
 .twoot-container button {
     background: transparent;
     transition: background-color 1s, color 1s;
     border: 1px solid orange;
     color: orange;
     border-radius: 0.5em;
-    float: right;
+    margin-left: 1em;
     font-size: 1.2em;
     padding: 0.5em;
 }
@@ -32,6 +36,10 @@
 .twoot-container button:hover {
     background-color: orange;
     color: #333;
+}
+
+.twoot-container button:disabled {
+    background-color: red;
 }
 
 .twoot-wrapper {

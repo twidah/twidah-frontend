@@ -9,8 +9,11 @@ const initialTwootState = {
     postBody: "",
 };
 
+// const initialDisabledState = false;
+
 export const Twoot = () => {
     const [twoot, setTwoot] = useState(initialTwootState);
+    // const [disabled, setDisabled] = useState(initialDisabledState);
 
     const change = (e) => {
         const { name, value } = e.target;
@@ -20,17 +23,21 @@ export const Twoot = () => {
     const twootSubmit = (e) => {
         e.preventDefault();
 
-        if (twoot.postBody.length > 0) {
-            axiosWithAuth()
-                .post(`${TwootPostConfig}`, twoot)
-                .then((res) => {
-                    console.log(res);
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
+        if (twoot.postBody.length > 280) {
+            window.alert("Too many characters!");
         } else {
-            window.alert("Post cannot be empty");
+            if (twoot.postBody.length > 0) {
+                axiosWithAuth()
+                    .post(`${TwootPostConfig}`, twoot)
+                    .then((res) => {
+                        console.log(res);
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+            } else {
+                window.alert("Post cannot be empty");
+            }
         }
     };
 
@@ -46,8 +53,10 @@ export const Twoot = () => {
                     onChange={change}
                 />
             </div>
-
-            <button onClick={twootSubmit}>Post</button>
+            <div className="float-right">
+                <span>{twoot.postBody.length} / 280</span>
+                <button onClick={twootSubmit}>Post</button>
+            </div>
         </div>
     );
 };
