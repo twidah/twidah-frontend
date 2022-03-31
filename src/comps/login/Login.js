@@ -74,6 +74,7 @@ export default function LoginForm({ setLogged }) {
 
     return (
         <div className="form">
+            <h1>Login</h1>
             <form onSubmit={submit}>
                 <span>{errors.usernameOrEmail}</span>
                 <br />

@@ -78,6 +78,7 @@ export default function SignUp({ setLogged }) {
 
     return (
         <div className="form">
+            <h1>Sign Up</h1>
             <form onSubmit={submit}>
                 <span>{errors.username}</span>
                 <br />
