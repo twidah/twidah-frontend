@@ -29,6 +29,7 @@
     padding: 1em;
     border-radius: 1em;
     border: 2px solid orange;
+    max-width: 600px;
 }
 
 .wrapper .waves {

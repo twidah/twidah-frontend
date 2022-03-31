@@ -1,0 +1,22 @@
+.post {
+    display: grid;
+    grid-template-columns: 0.2fr 1fr;
+    border: 1px solid grey;
+    border-radius: 1em;
+    overflow: scroll;
+    margin-bottom: 1.5em;
+}
+
+.username-and-post div {
+    /* display: block; */
+    padding: 0.2em;
+}
+
+.post-username {
+    font-size: 0.9em;
+}
+
+.no-wrap {
+    word-break: break-all;
+}
+/* Img has same styles in profile-pic within twoot index.css */ ;

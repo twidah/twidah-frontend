@@ -4,7 +4,7 @@ import LoginForm from "./comps/login/Login";
 import SignUp from "./comps/signup/SignUp";
 import Header from "./comps/nav/Header";
 import Logout from "./comps/logout/Logout";
-import { Dash } from "./comps/dash/Dash";
+import { View } from "./comps/view/View";
 import { Route, Routes } from "react-router-dom";
 import { RequireAuth, PublicAuth } from "./comps/Auth";
 
@@ -28,10 +28,10 @@ function App() {
                 <Header logged={logged} />
                 <Routes>
                     <Route
-                        path="/"
+                        path="*"
                         element={
                             <RequireAuth redirectTo="/login">
-                                <Dash />
+                                <View />
                             </RequireAuth>
                         }
                     />
