@@ -30,6 +30,7 @@
     border-radius: 1em;
     border: 2px solid orange;
     max-width: 600px;
+    overflow-y: scroll;
 }
 
 .wrapper .waves {
