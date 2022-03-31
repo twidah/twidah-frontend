@@ -5,13 +5,17 @@ import "./index.css";
 import { TwootPostConfig } from "../../../config/api";
 import { axiosWithAuth } from "../../AxiosWithAuth";
 
+import { connect } from "react-redux";
+
+import { FetchPosts } from "../../../actions/PostActions";
+
 const initialTwootState = {
     postBody: "",
 };
 
 // const initialDisabledState = false;
 
-export const Twoot = () => {
+const TwootComponent = ({ FetchPosts }) => {
     const [twoot, setTwoot] = useState(initialTwootState);
     // const [disabled, setDisabled] = useState(initialDisabledState);
 
@@ -30,7 +34,7 @@ export const Twoot = () => {
                 axiosWithAuth()
                     .post(`${TwootPostConfig}`, twoot)
                     .then((res) => {
-                        console.log(res);
+                        FetchPosts();
                     })
                     .catch((err) => {
                         console.log(err);
@@ -60,3 +64,11 @@ export const Twoot = () => {
         </div>
     );
 };
+
+const mapActionsToProps = () => {
+    return {
+        FetchPosts,
+    };
+};
+
+export const Twoot = connect(null, mapActionsToProps())(TwootComponent);
