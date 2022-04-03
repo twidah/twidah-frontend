@@ -1,3 +1,46 @@
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.links-wrapper {
+    padding: 2em;
+}
+
+.links-wrapper a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5em;
+    padding: 1em;
+    justify-content: center;
+    transition: color 1s;
+}
+
+.links-wrapper a:hover {
+    color: orange;
+    border-radius: 1em;
+}
+
 .twidah {
+    padding: 0.5em;
     padding-left: 1em;
+}
+
+.only-show-mobile {
+    display: none;
+}
+
+@media only screen and (max-width: 478px) {
+    .twidah {
+        display: none;
+    }
+
+    .only-show-mobile {
+        display: initial;
+    }
+
+    .header-wrapper {
+        justify-content: center;
+    }
 }

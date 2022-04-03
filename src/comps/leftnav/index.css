@@ -19,7 +19,7 @@
     background-color: #ff7b02;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
     .left-nav-btn {
         font-size: 1.1em;
     }
