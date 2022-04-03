@@ -18,3 +18,9 @@
 .left-nav-btn:hover {
     background-color: #ff7b02;
 }
+
+@media only screen and (max-width: 600px) {
+    .left-nav-btn {
+        font-size: 1.1em;
+    }
+}
