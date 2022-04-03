@@ -1,11 +1,4 @@
-import {
-    FETCH_START,
-    FETCH_FAIL,
-    FETCH_SUCCESS,
-    ADD_POST,
-    GET_POSTS,
-    DELETE_POST,
-} from "../actions";
+import { POSTS_GET, POSTS_FAIL, POSTS_SUCCESS } from "../actions";
 
 const initialState = {
     posts: [],
@@ -16,42 +9,25 @@ const initialState = {
 export const PostReducer = (state = initialState, action) => {
     switch (action.type) {
         // Fetchers
-        case FETCH_START: {
+        case POSTS_GET: {
             return {
                 ...state,
                 isLoading: true,
             };
         }
-        case FETCH_FAIL: {
+        case POSTS_FAIL: {
             return {
                 ...state,
                 isLoading: false,
                 errors: action.payload,
             };
         }
-        case FETCH_SUCCESS: {
+        case POSTS_SUCCESS: {
             return {
                 ...state,
                 posts: action.payload,
                 isLoading: false,
                 errors: "",
-            };
-        }
-
-        // Posts
-        case ADD_POST: {
-            return {
-                ...state,
-            };
-        }
-        case GET_POSTS: {
-            return {
-                ...state,
-            };
-        }
-        case DELETE_POST: {
-            return {
-                ...state,
             };
         }
 

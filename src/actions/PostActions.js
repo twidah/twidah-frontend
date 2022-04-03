@@ -1,23 +1,16 @@
 import { axiosWithAuth } from "../comps/AxiosWithAuth";
 import { TwootPostConfig } from "../config/api";
 
-import {
-    fetchStart,
-    fetchFail,
-    fetchSuccess,
-    // GET_POST,
-    // ADD_POST,
-    // DELETE_POST,
-} from "./index";
+import { postsGet, postsFail, postsSuccess } from "./index";
 
 export const FetchPosts = () => (dispatch) => {
-    dispatch(fetchStart());
+    dispatch(postsGet());
     axiosWithAuth()
         .get(`${TwootPostConfig}`)
         .then((res) => {
-            dispatch(fetchSuccess(res.data));
+            dispatch(postsSuccess(res.data));
         })
         .catch((err) => {
-            dispatch(fetchFail(err.message));
+            dispatch(postsFail(err.message));
         });
 };
