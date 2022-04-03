@@ -7,7 +7,7 @@ export const View = () => {
     return (
         <>
             <div className="wrapper">
-                <div className="container left-nav">
+                <div className=" left-nav">
                     <LeftNav />
                 </div>
                 <div className="container board">
