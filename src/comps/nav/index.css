@@ -31,16 +31,15 @@
     display: none;
 }
 
-@media only screen and (max-width: 478px) {
+@media only screen and (max-width: 557px) {
     .twidah {
         display: none;
+    }
+    .header-wrapper {
+        justify-content: center;
     }
 
     .only-show-mobile {
         display: initial;
-    }
-
-    .header-wrapper {
-        justify-content: center;
     }
 }
