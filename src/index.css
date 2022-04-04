@@ -17,4 +17,9 @@ code {
 481px — 768px: iPads, Tablets.
 769px — 1024px: Small screens, laptops.
 1025px — 1200px: Desktops, large screens.
+
+// NOTES FOR FUTURE ON GRID
+grid-template-columns:repeat(3, 1fr);
+grid-column-gap: 1em;
+grid-row-gap: 2em;
 */
