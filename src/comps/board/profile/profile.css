@@ -4,9 +4,28 @@
     background-image: url("./../../../assets/matrix.jpeg");
 }
 
+.wallpaper button {
+    background: #333;
+    border-radius: 0.5em;
+    border: none;
+    padding: 0.3em;
+    color: #fff;
+    font-size: 1.3em;
+    transition: color 1s, background-color 1s;
+}
+
+.wallpaper button:hover {
+    background-color: rgb(238, 139, 18);
+    color: #fff;
+}
+
 .profile-container img {
     border-radius: 50%;
     width: 7em;
+}
+
+.profile-container button {
+    float: right;
 }
 
 .bio {
