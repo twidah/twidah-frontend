@@ -1,23 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import img from "../../../assets/satoshi.webp";
 import "./profile.css";
-
-import { Modal } from "./modal/Modal";
+import { ModalComponent } from "./modal/Modal";
 
 export const Profile = () => {
-    const [modal, setModal] = useState(false);
-
-    const modalClick = () => {
-        setModal(!modal);
-    };
-
     return (
         <div className="profile-container">
-            {modal ? <Modal modalClick={modalClick} /> : null}
-
             <div className="wallpaper">
                 <img src={img} alt="Profile Pic" />
-                <button onClick={modalClick}>Edit Profile</button>
+                <ModalComponent />
             </div>
             <div className="username">
                 <h1>Satoshi Nakamoto</h1>
