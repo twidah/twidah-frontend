@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { FetchPosts } from "../../../actions/PostActions";
 import { Post } from "../post/Post";
 
-const FeedComponent = ({ posts, isLoading, FetchPosts }) => {
+const FeedComponent = ({ posts, isLoading, FetchPosts, errors }) => {
     useEffect(() => {
         FetchPosts();
     }, [FetchPosts]);
@@ -16,17 +16,19 @@ const FeedComponent = ({ posts, isLoading, FetchPosts }) => {
     return (
         <div>
             <h1>Feed</h1>
+            {errors ? <div>{errors}</div> : null}
             {posts.map((post, idx) => {
                 return <Post key={idx} post={post} />;
             })}
         </div>
     );
 };
-
+// Add errors from state
 const mapStateToProps = (state) => {
     return {
         posts: state.posts.posts,
         isLoading: state.posts.isLoading,
+        error: state.errors,
     };
 };
 

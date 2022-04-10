@@ -1,29 +1,35 @@
 import React, { useState, useEffect } from "react";
-import { axiosWithAuth } from "../../AxiosWithAuth";
+
 import img from "../../../assets/satoshi.webp";
 import "./profile.css";
-import { ModalComponent } from "./modal/Modal";
-import { ProfileConfig } from "../../../config/api";
+import { ProfileModal } from "./modal/Modal";
 
-const initialProfileState = {};
+import { connect } from "react-redux";
+import { FetchProfile } from "../../../actions/ProfileActions";
 
-export const Profile = () => {
-    const [profile, setProfile] = useState(initialProfileState);
+const ProfileComponent = ({ profile, isLoading, errors, FetchProfile }) => {
+    const [form, setForm] = useState({});
+
+    const change = (e) => {
+        const { name, value } = e.target;
+        setForm({ ...form, [name]: value });
+    };
 
     useEffect(() => {
-        axiosWithAuth()
-            .get(`${ProfileConfig}`)
-            .then((res) => {
-                setProfile(res.data);
-            })
-            .catch((err) => console.log(err));
-    }, []);
+        FetchProfile();
+    }, [FetchProfile]);
+
+    useEffect(() => {
+        setForm(profile);
+    }, [profile]);
 
     return (
         <div className="profile-container">
             <div className="wallpaper">
                 <img src={img} alt="Profile Pic" />
-                <ModalComponent profile={profile} />
+                {profile.isUser === true ? (
+                    <ProfileModal profile={form} handleChange={change} />
+                ) : null}
             </div>
             <div className="username">
                 <h1>@{profile.username}</h1>
@@ -42,3 +48,22 @@ export const Profile = () => {
         </div>
     );
 };
+
+const mapStateToProps = (state) => {
+    return {
+        profile: state.profile.profile,
+        isLoading: state.isLoading,
+        errors: state.errors,
+    };
+};
+
+const mapActionsToProps = () => {
+    return {
+        FetchProfile,
+    };
+};
+
+export const Profile = connect(
+    mapStateToProps,
+    mapActionsToProps()
+)(ProfileComponent);

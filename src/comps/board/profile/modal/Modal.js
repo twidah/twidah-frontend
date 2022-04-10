@@ -1,35 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Modal, Form, Button } from "react-bootstrap";
 import "./modal.css";
 
-const initialFormState = {
-    bio: "",
-    location: "",
-    website: "",
-};
+// import { connect } from "react-redux";
+// import { FetchProfile } from "../../../../actions/ProfileActions";
 
-export const ModalComponent = ({ profile }) => {
+export const ProfileModal = ({ profile, handleChange }) => {
     const [show, setShow] = useState(false);
-    const [form, setForm] = useState(initialFormState);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    useEffect(() => {
-        setForm({
-            ...form,
-            bio: profile.bio,
-            location: profile.location,
-            website: profile.website,
-        });
-    }, [profile]);
-
-    const change = (e) => {
-        const { name, value } = e.target;
-        setForm({ ...form, [name]: value });
-    };
-
     const submit = (e) => {
+        // Handle the submit through actions
         e.preventDefault();
         handleClose();
     };
@@ -48,24 +31,24 @@ export const ModalComponent = ({ profile }) => {
                             type="text"
                             name="bio"
                             max="100"
-                            value={form.bio}
-                            onChange={change}
+                            value={profile.bio}
+                            onChange={handleChange}
                         />
 
                         <Form.Label htmlFor="location">Location</Form.Label>
                         <Form.Control
                             type="text"
                             name="location"
-                            value={form.location}
-                            onChange={change}
+                            value={profile.location}
+                            onChange={handleChange}
                         />
 
                         <Form.Label htmlFor="website">Website</Form.Label>
                         <Form.Control
                             type="text"
                             name="website"
-                            value={form.website}
-                            onChange={change}
+                            value={profile.website}
+                            onChange={handleChange}
                         />
                     </Form.Group>
                 </Modal.Body>
@@ -81,3 +64,20 @@ export const ModalComponent = ({ profile }) => {
         </>
     );
 };
+
+// const mapStateToProps = (state) => {
+//   return {
+//     profile: state.profile,
+//   };
+// };
+
+// const mapActionsToProps = () => {
+//   return {
+//     FetchProfile,
+//   };
+// };
+
+// export const ProfileModal = connect(
+//   mapStateToProps,
+//   mapActionsToProps()
+// )(ModalComponent);

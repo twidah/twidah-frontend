@@ -10,7 +10,5 @@ export const FetchPosts = () => (dispatch) => {
         .then((res) => {
             dispatch(postsSuccess(res.data));
         })
-        .catch((err) => {
-            dispatch(postsFail(err.message));
-        });
+        .catch((err) => dispatch(postsFail(err.message)));
 };
