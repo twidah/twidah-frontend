@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from "react";
-
+import { useParams } from "react-router-dom";
 import img from "../../../assets/satoshi.webp";
 import "./profile.css";
 import { ProfileModal } from "./modal/Modal";
 
 import { connect } from "react-redux";
-import { FetchProfile } from "../../../actions/ProfileActions";
+import { FetchProfile, UpdateProfile } from "../../../actions/ProfileActions";
 
-const ProfileComponent = ({ profile, isLoading, errors, FetchProfile }) => {
+const ProfileComponent = ({
+    profile,
+    isLoading,
+    errors,
+    FetchProfile,
+    UpdateProfile,
+}) => {
     const [form, setForm] = useState({});
+
+    const { username } = useParams();
 
     const change = (e) => {
         const { name, value } = e.target;
@@ -16,8 +24,8 @@ const ProfileComponent = ({ profile, isLoading, errors, FetchProfile }) => {
     };
 
     useEffect(() => {
-        FetchProfile();
-    }, [FetchProfile]);
+        FetchProfile(username);
+    }, [FetchProfile, username]);
 
     useEffect(() => {
         setForm(profile);
@@ -28,7 +36,12 @@ const ProfileComponent = ({ profile, isLoading, errors, FetchProfile }) => {
             <div className="wallpaper">
                 <img src={img} alt="Profile Pic" />
                 {profile.isUser === true ? (
-                    <ProfileModal profile={form} handleChange={change} />
+                    <ProfileModal
+                        profile={form}
+                        handleChange={change}
+                        update={UpdateProfile}
+                        username={username}
+                    />
                 ) : null}
             </div>
             <div className="username">
@@ -60,6 +73,7 @@ const mapStateToProps = (state) => {
 const mapActionsToProps = () => {
     return {
         FetchProfile,
+        UpdateProfile,
     };
 };
 

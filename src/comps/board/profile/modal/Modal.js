@@ -5,7 +5,7 @@ import "./modal.css";
 // import { connect } from "react-redux";
 // import { FetchProfile } from "../../../../actions/ProfileActions";
 
-export const ProfileModal = ({ profile, handleChange }) => {
+export const ProfileModal = ({ profile, handleChange, update, username }) => {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -14,6 +14,7 @@ export const ProfileModal = ({ profile, handleChange }) => {
     const submit = (e) => {
         // Handle the submit through actions
         e.preventDefault();
+        update(username, profile);
         handleClose();
     };
 
@@ -31,7 +32,7 @@ export const ProfileModal = ({ profile, handleChange }) => {
                             type="text"
                             name="bio"
                             max="100"
-                            value={profile.bio}
+                            value={profile.bio ? profile.bio : ""}
                             onChange={handleChange}
                         />
 
@@ -39,7 +40,7 @@ export const ProfileModal = ({ profile, handleChange }) => {
                         <Form.Control
                             type="text"
                             name="location"
-                            value={profile.location}
+                            value={profile.location ? profile.location : ""}
                             onChange={handleChange}
                         />
 
@@ -47,7 +48,7 @@ export const ProfileModal = ({ profile, handleChange }) => {
                         <Form.Control
                             type="text"
                             name="website"
-                            value={profile.website}
+                            value={profile.website ? profile.website : ""}
                             onChange={handleChange}
                         />
                     </Form.Group>
