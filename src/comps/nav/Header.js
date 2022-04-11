@@ -4,7 +4,7 @@ import "./index.css";
 export const Header = ({ logged }) => {
     return (
         <div className="header-wrapper">
-            <h1 className="twidah">TWIDAH v0.4</h1>
+            <h1 className="twidah">TWIDAH v0.6</h1>
             <div className="links-wrapper">
                 {!logged && (
                     <>
