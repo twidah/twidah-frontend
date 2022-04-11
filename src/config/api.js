@@ -7,3 +7,6 @@ export const LoginConfig =
 
 export const TwootPostConfig =
     process.env.REACT_APP_TWOOT_API || "http://localhost:4000/api/posts/";
+
+export const ProfileConfig =
+    process.env.REACT_APP_PROFILE_API || "http://localhost:4000/api/profile/";

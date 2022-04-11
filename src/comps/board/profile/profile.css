@@ -1,0 +1,69 @@
+.wallpaper {
+    border-radius: 1em;
+    background-color: white;
+    background-image: url("./../../../assets/matrix.jpeg");
+}
+
+.wallpaper button {
+    background: #333;
+    border-radius: 0.5em;
+    border: none;
+    padding: 0.3em;
+    color: #fff;
+    font-size: 1.3em;
+    transition: color 1s, background-color 1s;
+}
+
+.wallpaper button:hover {
+    background-color: rgb(238, 139, 18);
+    color: #fff;
+}
+
+.profile-container img {
+    border-radius: 50%;
+    width: 7em;
+}
+
+.profile-container button {
+    float: right;
+}
+
+.bio {
+    font-size: 1.3em;
+}
+
+.infos span,
+.follows span {
+    margin: 1em;
+}
+
+.infos span a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.infos,
+.follows {
+    margin: 1em;
+}
+
+@media only screen and (max-width: 478px) {
+    .username {
+        font-size: 0.9em;
+    }
+
+    .bio {
+        font-size: 0.8em;
+    }
+
+    .infos span,
+    .follows span {
+        font-size: 0.8em;
+        margin-right: 0em;
+    }
+
+    .infos,
+    .follows {
+        margin: 0em;
+    }
+}

@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { Twoot } from "./twoot/Twoot";
 import { Feed } from "./feed/Feed";
+import { Profile } from "./profile/Profile";
 
 export const Board = () => {
     return (
@@ -16,7 +17,14 @@ export const Board = () => {
                         </>
                     }
                 />
-                {/* <Route path="/" element={} /> */}
+                <Route
+                    path="/:username"
+                    element={
+                        <>
+                            <Profile />
+                        </>
+                    }
+                />
             </Routes>
         </>
     );
